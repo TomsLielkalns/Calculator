@@ -74,7 +74,14 @@ namespace Calculator
             string s = Display.Text;
             if (s.Length > 1)
             {
-                s = s.Substring(0, s.Length - 1);
+                if ((s.Contains("-") == true) && (s.Length == 2))
+                {
+                    s = "0";
+                }
+                else
+                {
+                    s = s.Substring(0, (s.Length - 1));
+                }
             }
             else
             {
@@ -87,7 +94,7 @@ namespace Calculator
         {
             double number = Convert.ToDouble(Display.Text);
             number *= -1;
-            Display.Text = Convert.ToString(number);
+            Display.Text = number.ToString();
         }
     }
 }
