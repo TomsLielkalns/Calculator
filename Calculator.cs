@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Calculator
 {
     public partial class Calculator : Form
     {
+        char decimalSeperator;
+
         public Calculator()
         {
             InitializeComponent();
@@ -20,6 +23,7 @@ namespace Calculator
 
         private void InitializeCalculator()
         {
+            decimalSeperator = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
             this.BackColor = Color.LightGray;
             Display.Font = new Font("Roboto", 22f);
             Display.Text = "0";
@@ -52,16 +56,16 @@ namespace Calculator
 
         private void buttonDecimal_Click(object sender, EventArgs e)
         {
-            bool weHaveDot = Display.Text.Contains(".");
+            bool weHaveDot = Display.Text.Contains(decimalSeperator);
             if (!weHaveDot)
             {
                 if (Display.Text == string.Empty)
                 {
-                    Display.Text += "0.";
+                    Display.Text += "0" + decimalSeperator;
                 }
                 else
                 {
-                    Display.Text += ".";
+                    Display.Text += decimalSeperator;
                 }
             }
         }
