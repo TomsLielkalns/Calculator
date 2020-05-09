@@ -39,6 +39,8 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button0 = new System.Windows.Forms.Button();
+            this.buttonDecimal = new System.Windows.Forms.Button();
+            this.ButtonBackspace = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Display
@@ -46,7 +48,7 @@
             this.Display.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Display.Location = new System.Drawing.Point(12, 12);
             this.Display.Name = "Display";
-            this.Display.Size = new System.Drawing.Size(350, 46);
+            this.Display.Size = new System.Drawing.Size(252, 46);
             this.Display.TabIndex = 0;
             this.Display.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -150,11 +152,33 @@
             this.button0.UseVisualStyleBackColor = true;
             this.button0.Click += new System.EventHandler(this.Button_Click);
             // 
+            // buttonDecimal
+            // 
+            this.buttonDecimal.Location = new System.Drawing.Point(184, 322);
+            this.buttonDecimal.Name = "buttonDecimal";
+            this.buttonDecimal.Size = new System.Drawing.Size(80, 80);
+            this.buttonDecimal.TabIndex = 11;
+            this.buttonDecimal.Text = ".";
+            this.buttonDecimal.UseVisualStyleBackColor = true;
+            this.buttonDecimal.Click += new System.EventHandler(this.buttonDecimal_Click);
+            // 
+            // ButtonBackspace
+            // 
+            this.ButtonBackspace.Location = new System.Drawing.Point(270, 12);
+            this.ButtonBackspace.Name = "ButtonBackspace";
+            this.ButtonBackspace.Size = new System.Drawing.Size(93, 46);
+            this.ButtonBackspace.TabIndex = 12;
+            this.ButtonBackspace.Text = "←";
+            this.ButtonBackspace.UseVisualStyleBackColor = true;
+            this.ButtonBackspace.Click += new System.EventHandler(this.ButtonBackspace_Click);
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(375, 450);
+            this.Controls.Add(this.ButtonBackspace);
+            this.Controls.Add(this.buttonDecimal);
             this.Controls.Add(this.button0);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
@@ -186,6 +210,8 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button0;
+        private System.Windows.Forms.Button buttonDecimal;
+        private System.Windows.Forms.Button ButtonBackspace;
     }
 }
 
