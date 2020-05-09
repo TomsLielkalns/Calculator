@@ -22,6 +22,8 @@ namespace Calculator
         {
             this.BackColor = Color.LightGray;
             Display.Font = new Font("Roboto", 22f);
+            Display.Text = "0";
+            Display.TabStop = false;
 
             string buttonName = null;
             Button button = null;
@@ -38,12 +40,20 @@ namespace Calculator
         private void Button_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            Display.Text += button.Text;
+            if (Display.Text == "0")
+            {
+                Display.Text = button.Text;
+            }
+            else
+            {
+                Display.Text += button.Text;
+            }
         }
 
         private void buttonDecimal_Click(object sender, EventArgs e)
         {
-            if (!Display.Text.Contains("."))
+            bool weHaveDot = Display.Text.Contains(".");
+            if (!weHaveDot)
             {
                 if (Display.Text == string.Empty)
                 {
@@ -64,10 +74,16 @@ namespace Calculator
             }
             else
             {
-                s = "";
+                s = "0";
             }
-
             Display.Text = s;
+        }
+
+        private void buttonSign_Click(object sender, EventArgs e)
+        {
+            double number = Convert.ToDouble(Display.Text);
+            number *= -1;
+            Display.Text = Convert.ToString(number);
         }
     }
 }
