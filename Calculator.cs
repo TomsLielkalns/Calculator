@@ -130,5 +130,12 @@ namespace Calculator
 
             Display.Text = result.ToString();
         }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            Display.Text = "0";
+            numOne = 0;
+            numTwo = 0;
+        }
     }
 }
