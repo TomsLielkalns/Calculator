@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Linq.Expressions;
 
 namespace Calculator
 {
@@ -17,6 +18,9 @@ namespace Calculator
         double numOne = 0;
         double numTwo = 0;
         string operation;
+        bool scifiMode = false;
+        const int widthSmall = 419;
+        const int widthLarge = 676;
 
         public Calculator()
         {
@@ -28,6 +32,11 @@ namespace Calculator
         {
             decimalSeperator = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
             this.BackColor = Color.LightGray;
+            this.Width = widthSmall;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.StartPosition = FormStartPosition.CenterScreen; 
+
             Display.Font = new Font("Roboto", 22f);
             Display.Text = "0";
             Display.TabStop = false;
@@ -127,6 +136,10 @@ namespace Calculator
             {
                 result = numOne / numTwo;
             }
+            else if (operation == "x^")
+            {
+                result = Math.Pow(numOne, numTwo);
+            }
 
             Display.Text = result.ToString();
         }
@@ -136,6 +149,19 @@ namespace Calculator
             Display.Text = "0";
             numOne = 0;
             numTwo = 0;
+        }
+
+        private void buttonSciFi_Click(object sender, EventArgs e)
+        {
+            if (scifiMode)
+            {
+                this.Width = widthSmall;
+            }
+            else
+            {
+                this.Width = widthLarge;
+            }
+            scifiMode = !scifiMode;
         }
     }
 }
