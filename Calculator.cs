@@ -33,7 +33,7 @@ namespace Calculator
             decimalSeperator = Convert.ToChar(Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator);
             this.BackColor = Color.LightGray;
             this.Width = widthSmall;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.StartPosition = FormStartPosition.CenterScreen; 
 
@@ -111,9 +111,17 @@ namespace Calculator
 
         private void Operation_Click(object sender, EventArgs e)
         {
+            Button button = (Button)sender;
             numOne = Convert.ToDouble(Display.Text);
+
+            if(button.Text == "√")
+            {
+                Display.Text = Math.Sqrt(numOne).ToString();
+                return;
+            }
+
             Display.Text = string.Empty;
-            operation = ((Button)sender).Text;
+            operation = button.Text;
         }
 
         private void buttonResult_Click(object sender, EventArgs e)

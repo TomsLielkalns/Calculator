@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calculator));
             this.Display = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -49,7 +50,7 @@
             this.buttonResult = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonPower = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.buttonSqrt = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
@@ -280,17 +281,20 @@
             this.buttonPower.TabIndex = 20;
             this.buttonPower.Text = "x^";
             this.buttonPower.UseVisualStyleBackColor = true;
+            this.buttonPower.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             this.buttonPower.Click += new System.EventHandler(this.Operation_Click);
             // 
-            // button10
+            // buttonSqrt
             // 
-            this.button10.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(488, 64);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(80, 80);
-            this.button10.TabIndex = 21;
-            this.button10.Text = "x^";
-            this.button10.UseVisualStyleBackColor = true;
+            this.buttonSqrt.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSqrt.Location = new System.Drawing.Point(488, 64);
+            this.buttonSqrt.Name = "buttonSqrt";
+            this.buttonSqrt.Size = new System.Drawing.Size(80, 80);
+            this.buttonSqrt.TabIndex = 21;
+            this.buttonSqrt.Text = "√";
+            this.buttonSqrt.UseVisualStyleBackColor = true;
+            this.buttonSqrt.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
+            this.buttonSqrt.Click += new System.EventHandler(this.Operation_Click);
             // 
             // button11
             // 
@@ -301,6 +305,7 @@
             this.button11.TabIndex = 22;
             this.button11.Text = "x^";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             // 
             // button12
             // 
@@ -311,6 +316,7 @@
             this.button12.TabIndex = 25;
             this.button12.Text = "x^";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             // 
             // button13
             // 
@@ -321,6 +327,7 @@
             this.button13.TabIndex = 24;
             this.button13.Text = "x^";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             // 
             // button14
             // 
@@ -331,6 +338,7 @@
             this.button14.TabIndex = 23;
             this.button14.Text = "x^";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             // 
             // button15
             // 
@@ -341,6 +349,7 @@
             this.button15.TabIndex = 28;
             this.button15.Text = "x^";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             // 
             // button16
             // 
@@ -351,6 +360,7 @@
             this.button16.TabIndex = 27;
             this.button16.Text = "x^";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             // 
             // button17
             // 
@@ -361,6 +371,7 @@
             this.button17.TabIndex = 26;
             this.button17.Text = "x^";
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             // 
             // button18
             // 
@@ -371,6 +382,7 @@
             this.button18.TabIndex = 31;
             this.button18.Text = "x^";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             // 
             // button19
             // 
@@ -381,6 +393,7 @@
             this.button19.TabIndex = 30;
             this.button19.Text = "x^";
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             // 
             // button20
             // 
@@ -391,6 +404,7 @@
             this.button20.TabIndex = 29;
             this.button20.Text = "x^";
             this.button20.UseVisualStyleBackColor = true;
+            this.button20.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             // 
             // button21
             // 
@@ -401,6 +415,7 @@
             this.button21.TabIndex = 34;
             this.button21.Text = "x^";
             this.button21.UseVisualStyleBackColor = true;
+            this.button21.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             // 
             // button22
             // 
@@ -411,6 +426,7 @@
             this.button22.TabIndex = 33;
             this.button22.Text = "x^";
             this.button22.UseVisualStyleBackColor = true;
+            this.button22.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             // 
             // button23
             // 
@@ -421,6 +437,7 @@
             this.button23.TabIndex = 32;
             this.button23.Text = "x^";
             this.button23.UseVisualStyleBackColor = true;
+            this.button23.AutoSizeChanged += new System.EventHandler(this.Operation_Click);
             // 
             // label1
             // 
@@ -463,7 +480,7 @@
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.buttonSqrt);
             this.Controls.Add(this.buttonPower);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonResult);
@@ -485,8 +502,9 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Display);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Calculator";
-            this.Text = "Form1";
+            this.Text = "Calculator made debil";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,7 +533,7 @@
         private System.Windows.Forms.Button buttonResult;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonPower;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button buttonSqrt;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
